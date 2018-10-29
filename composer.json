@@ -1,0 +1,20 @@
+{
+    "name": "hoang-hieu/resume",
+    "authors": [
+        {
+            "name": "Hoang Hieu",
+            "email": "sunvni@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Core\\": "core/"
+        },        
+        "files": [
+            "core/Runtime/helper.php"
+        ]
+    },
+    "require": {
+        "twig/twig": "2.0"
+    }
+}

@@ -1,0 +1,14 @@
+DirectoryIndex index.php
+
+# mod_rewrite setting #
+RewriteEngine On
+RewriteBase /
+#RewriteCond %{HTTPS} off
+#RewriteRule ^.*$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteCond %{REQUEST_URI} !/$
+RewriteCond %{REQUEST_URI} !\.[^\./]+$
+RewriteRule ^.* %{REQUEST_URI}/ [L,R=301]
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?path=$1 [QSA,L]

@@ -1,0 +1,10 @@
+{% extends "layouts/one.twig" %}
+
+{% block title %}My CV, {{post.title}}{% endblock %}
+{% block content %}
+    <h1>{{post.title}}</h1>
+    <p class="content">
+        {{post.content}}
+    </p>
+    <span>Date: {{post.date}} by {{post.writer}}</span>
+{% endblock %}
