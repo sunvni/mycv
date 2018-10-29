@@ -2,9 +2,11 @@
 
 {% block title %}My CV, {{post.title}}{% endblock %}
 {% block content %}
-    <h1>{{post.title}}</h1>
-    <p class="content">
-        {{post.content}}
-    </p>
-    <span>Date: {{post.date}} by {{post.writer}}</span>
+    <section class="blog-post">        
+        <h1>{{post.title}}</h1>
+        <p class="content">
+            {{post.content}}
+        </p>
+        <span class="director">Date: {{post.date}} by {{post.writer}}</span>
+    </section>
 {% endblock %}

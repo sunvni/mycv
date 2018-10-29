@@ -1,16 +1,18 @@
 <section class="header">
-    <div class="logo">
-        <a href="/">
-            <img src="" />
-        </a>
-    </div>    
-    <nav class="nav">
-        <ul>
-            <li><a href="{{path('')}}" class="{{ request().active('home')}}">Home</a>
-            <li><a href="{{path('about')}}" class="{{ request().active('about')}}">About</a>
-            <li><a href="{{path('project')}}" class="{{ request().active('project')}}">Projects</a>
-            <li><a href="{{path('road')}}" class="{{ request().active('road')}}">Roadmap</a>
-            <li><a href="{{path('post')}}/1" class="{{ request().active('post')}}">Blogs</a>
-        </ul>
-    </nav>
+    <div class="menu">
+        <div class="logo">
+            <a href="{{path()}}">
+                <span class="logo-text">myResume</span>
+            </a>
+        </div>    
+        <nav class="nav">
+            <ul>
+                <li><a href="{{path('')}}" class="{{ request().active('home')}}">Home</a>
+                <li><a href="{{path('about')}}" class="{{ request().active('about')}}">About</a>
+                <li><a href="{{path('project')}}" class="{{ request().active('project')}}">Projects</a>
+                <li><a href="{{path('road')}}" class="{{ request().active('road')}}">Roadmap</a>
+                <li><a href="{{path('post')}}/1" class="{{ request().active('post')}}">Blogs</a>
+            </ul>
+        </nav>
+    </div>
 </section>

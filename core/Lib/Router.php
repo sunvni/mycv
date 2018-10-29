@@ -74,11 +74,13 @@ class Router
         $request = request();
         if ($request->get('method') == "POST") {
             $cskey = session()->get('cskey');
+            $reqcskey = $request->get('cskey');
             session()->delete("cskey");
-            if ($cskey != $request->get('cskey')) {
+            if ($cskey != $reqcskey) {
                 return false;
             }
         }
+        $request->delete("cskey");
         return true;
     }
 

@@ -21,9 +21,9 @@ class Request
         return false;
     }
 
-    public function get($name)
+    public function get($name = false)
     {
-        if ($name == null) {
+        if ($name === false) {
             return $this->data;
         }
         if ($name == 'method') {
@@ -33,6 +33,12 @@ class Request
         } elseif ($this->isHome()) {
             return "/";
         }
+    }
+
+    public function delete($key)
+    {
+        unset($this->data[$key]);
+        unset($_REQUEST[$key]);
     }
 
     public function active($path)
