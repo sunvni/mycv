@@ -21,14 +21,18 @@ class Request
         return false;
     }
 
-    public function __get($name)
+    public function get($name)
     {
-        if (isset($this->data[$name])) {
+        if ($name == null) {
+            return $this->data;
+        }
+        if ($name == 'method') {
+            return $this->method;
+        } elseif (isset($this->data[$name])) {
             return $this->data[$name];
         } elseif ($this->isHome()) {
             return "/";
         }
-        throw new \Exception("Error Processing Request", 1);
     }
 
     public function active($path)

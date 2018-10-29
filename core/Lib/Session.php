@@ -7,22 +7,28 @@ class Session
     private $id;
     public function __construct()
     {
-        if ($this->id == session_id()) {
+        if (session_status() == PHP_SESSION_NONE) {
             session_start();
-            $this->data = $_SESSION;
         }
+        $this->data = $_SESSION;
     }
     
-    public function __get($name)
+    public function get($name)
     {
         if (isset($this->data[$name])) {
             return $this->data[$name];
         }
-        throw new Exception("Error Processing Request", 1);
     }
 
-    public function __set($name, $value)
+    public function set($name, $value)
     {
         $this->data[$name] = $value;
+        $_SESSION[$name] = $value;
+    }
+    
+    public function delete($key)
+    {
+        unset($this->data[$key]);
+        unset($_SESSION[$key]);
     }
 }

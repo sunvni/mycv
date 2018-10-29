@@ -12,4 +12,16 @@
     <p class="important">
         Welcome on my awesome homepage.
     </p>
+    <form action="{{path('')}}" method="post" class="form">
+        <fieldset>
+            {{ addkey()|raw}}
+            <legend>Login Form</legend>
+            <label for="name">Username</label>
+            <input type="text" name="username" id="name" placeholder="enter username" required>
+            <label for="password">Password</label>
+            <input type="password" name="password" id="pass" placeholder="123456" required>
+            <input type="submit" value="Submit">
+        </fieldset>
+    </form>
+    
 {% endblock %}

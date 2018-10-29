@@ -21,8 +21,10 @@ class View
         $this->engine->addExtension(new \Twig_Extension_Debug());
         $path = new \Twig_Function('path', 'path');
         $request = new \Twig_Function('request', 'request');
+        $addkey = new \Twig_Function('addkey', 'addkey');
         $this->engine->addFunction($path);
         $this->engine->addFunction($request);
+        $this->engine->addFunction($addkey);
     }
     public function display($view, $data)
     {

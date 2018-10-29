@@ -12,11 +12,9 @@ class Router
     private $controller;
     private $function;
     private $args = array();
-    private $request;
 
     public function __construct()
     {
-        $this->request = new Request;
         $this->web = require __DIR__.'/../router.php';
     }
 
@@ -27,9 +25,10 @@ class Router
 
     private function setController()
     {
-        $method = $this->request->method;
-        $path = $this->request->path;
-        $isHome = $this->request->isHome();
+        $request = request();
+        $method = $request->get('method');
+        $path = $request->get('path');
+        $isHome = $request->isHome();
         if (!$isHome) {
             foreach ($this->web[$method] as $key => $res) {
                 $regex = preg_replace('/{(.+?)}/', '(?\'${1}\'.+?)', $key);
@@ -54,6 +53,11 @@ class Router
 
     public function run()
     {
+        $valid = $this->checkCSKey();
+        if (!$valid) {
+            redirect('home');
+            die;
+        }
         $hasRouter = $this->setController();
         if ($hasRouter) {
             $controller = $this->initController();
@@ -63,6 +67,19 @@ class Router
         } else {
             $this->error();
         }
+    }
+
+    private function checkCSKey()
+    {
+        $request = request();
+        if ($request->get('method') == "POST") {
+            $cskey = session()->get('cskey');
+            session()->delete("cskey");
+            if ($cskey != $request->get('cskey')) {
+                return false;
+            }
+        }
+        return true;
     }
 
     private function error()

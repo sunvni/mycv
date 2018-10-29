@@ -22,4 +22,9 @@ class HomeController extends Controller
         $msg = "Roadmap is on developing!";
         return view("home.road", compact('msg'));
     }
+    public function login()
+    {
+        $input = request()->get();
+        dd($input);
+    }
 }

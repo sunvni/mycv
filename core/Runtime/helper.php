@@ -66,6 +66,28 @@ function view()
 function path()
 {
     $where = func_get_args();
-    $site_url = config()->site_url;    
+    $site_url = config()->site_url;
     return $site_url."/".join('/', $where);
+}
+
+function cskey()
+{
+    $ip = $_SERVER['REMOTE_ADDR'];
+    $uniqid = uniqid(mt_rand(), true);
+    return md5($ip . $uniqid);
+}
+function addkey()
+{
+    $key = cskey();
+    session()->set('cskey', $key);
+    return "<input type='hidden' value='{$key}' name='cskey'/>";
+}
+
+function redirect($where)
+{
+    if ($where == 'home') {
+        header('location: '.path(''));
+    } else {
+        header('location: '.path($where));
+    }
 }

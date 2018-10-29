@@ -7,6 +7,9 @@ $web = array(
         'project' => array('con' => 'ProjectController', 'func' => 'index'),
         'road' => array('con' => 'HomeController', 'func' => 'roadMap'),
         'post/{id}' => array('con' => 'BlogController', 'func' => 'show', 'name'=> 'blog')
+    ),
+    'POST' => array(
+        '/' => array('con' => 'HomeController', 'func' => 'login')
     )
 );
 return $web;
