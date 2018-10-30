@@ -17,6 +17,7 @@
             <div class="content">{% block content %}{% endblock %}</div>            
             {% block script %}{% endblock %}
         </div>
+        {% include 'layouts/partials/msg.twig' %}
         <footer>
                 {% block footer %}
                     &copy; Copyright 2018 by <a target="_blank" href="https://sunvni.com/">sunvni.com</a>.

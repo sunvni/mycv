@@ -5,7 +5,7 @@
                 <span class="logo-text">myResume</span>
             </a>
         </div>    
-        <nav class="nav">
+        <nav class="nav" id="navbar">
             <ul>
                 <li><a href="{{path('')}}" class="{{ request().active('home')}}">Home</a>
                 <li><a href="{{path('about')}}" class="{{ request().active('about')}}">About</a>
@@ -14,5 +14,8 @@
                 <li><a href="{{path('post')}}/1" class="{{ request().active('post')}}">Blogs</a>
             </ul>
         </nav>
+        <a href="javascript:void(0)" class="menu-icon" onclick="showMenu()">
+            <span>+</span>
+        </a>
     </div>
 </section>

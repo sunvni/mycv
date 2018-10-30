@@ -10,6 +10,9 @@ html {
     padding: 0;
     margin: 0;
 }
+a {
+    text-decoration: none;
+}
 h1,
 h2,
 h3,
@@ -53,19 +56,20 @@ body {
     width: 100%;
     background-color: #29487d;
     margin-bottom: 20px;
-    padding-left: 20px;
 }
 .logo {
     float: left;
     width: 7rem
 }
 .menu {
-    width: 50rem;
+    width: 80%;
     margin: auto;
 }
 .nav {
     float: right;
+    padding-right: 20px;
 }
+
 .content {
     padding: 40px;
     margin: 0 auto;
@@ -83,7 +87,13 @@ footer {
     bottom: 0px;
     left: 0px;
     width: 100%;
-    background-color: #29487d
+    padding-left: 2rem;
+    font-size: 0.8em;
+    color: #d8d8d8;
+    background-color: #29487d;
+}
+footer a {
+    color: #50cc83;
 }
 .form {
     width: 400px;
@@ -100,4 +110,79 @@ fieldset {
 }
 .logo a {
     text-decoration: none;
+    margin-left: 20px;
+}
+.menu-icon {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    color: white;
+    text-decoration: none;
+}
+.msg {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    border-radius: 50%;
+    background-color: #3578e5;
+    height: 45px;
+    width: 45px;
+    cursor: pointer;
+    z-index: 100;
+    -moz-box-shadow: 0 8px 6px -6px black;
+    -webkit-box-shadow: 0 8px 6px -6px black;
+    box-shadow: 0 8px 6px -6px black;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+    .menu {
+        width: 100%;
+    }
+    .menu-icon {
+        display: block;
+        position: absolute;
+        top: 1.5px;
+        right: 10px;
+        color: white;
+        text-decoration: none;
+        height: 40px;
+        padding: 10px 15px 10px 15px;
+        line-height: 15px;
+        background: #355c9ef5;
+        border: 0.2px solid #355c9ef5;  
+    }
+    .menu-icon:hover {
+        background: #162744f5;
+    }
+    .nav {
+        display: none;
+        float: none;
+    }
+    .nav>ul {
+        position: absolute;
+        top: 43px;
+        background: #02122d;
+        width: 100%;
+    }
+    .nav.responsive {
+        display: inline;
+    }
+    .menu-icon.nav.responsive {        
+        background: #243a5f;   
+        -moz-box-shadow: inset 0 0 10px #000000;
+        -webkit-box-shadow: inset 0 0 10px #000000;
+        box-shadow: inset 0 0 4px #08162f;
+    }
+    .nav>ul>li {
+        float: none;
+    }
+    .nav>ul>li>a {
+        margin-left: 20px;
+    }
+    .nav>ul>li:hover {
+        background: #0d59de;
+    }
 }
