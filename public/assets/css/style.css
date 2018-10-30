@@ -147,7 +147,7 @@ fieldset {
     width: 140px;
     position: absolute;
     bottom: -10px;
-    background-image: url(http://localhost/mycv/public/assets/image/avatar.jpg);
+    background-image: url(/assets/image/avatar.jpg);
     border: 3px solid white;
     border-radius: 50%;
 }
