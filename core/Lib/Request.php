@@ -40,13 +40,11 @@ class Request
         unset($this->data[$key]);
         unset($_REQUEST[$key]);
     }
-
-    public function active($path)
+    public function is($path)
     {
-        $controller = explode('/', $this->data['path']);
-        if ($this->isHome() && $path == "home" || $path == $controller[0]) {
-            return 'active';
+        if ($this->isHome()) {
+            return $path == "home";
         }
-        return '';
+        return explode("/", $this->data['path'])[0] == $path;
     }
 }

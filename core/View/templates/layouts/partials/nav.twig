@@ -7,11 +7,25 @@
         </div>    
         <nav class="nav" id="navbar">
             <ul>
-                <li><a href="{{path('')}}" class="{{ request().active('home')}}">Home</a>
-                <li><a href="{{path('about')}}" class="{{ request().active('about')}}">About</a>
-                <li><a href="{{path('project')}}" class="{{ request().active('project')}}">Projects</a>
-                <li><a href="{{path('road')}}" class="{{ request().active('road')}}">Roadmap</a>
-                <li><a href="{{path('post')}}/1" class="{{ request().active('post')}}">Blogs</a>
+                <li class="{{ request().is('home') ? 'active' : '' }}">
+                    <a href="{{path('')}}">Home</a>
+                </li>
+                <li class="{{ request().is('about') ? 'active' : '' }}">
+                    <a href="{{path('about')}}">About</a>
+                </li>
+                <li class="{{ request().is('project') ? 'active' : '' }}">
+                    <a href="{{path('project')}}">Projects</a>
+                </li>
+                <li class="{{ request().is('road') ? 'active' : '' }}">
+                    <a href="{{path('road')}}">Roadmap</a>
+                </li>               
+                </li>
+                <li class="{{ request().is('post') ? 'active' : '' }}">
+                    <a href="{{path('post')}}/1" class="top-icon">
+                        <i class="world icon"></i>
+                        <span class="notify"></span>
+                    </a>
+                </li>
             </ul>
         </nav>
         <a href="javascript:void(0)" class="menu-icon" onclick="showMenu()">

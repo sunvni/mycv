@@ -6,7 +6,8 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Document</title>
         {% block head %}
-            <link rel="stylesheet" href="{{path('assets', 'css', 'style.css')}}" />            
+            <link rel="stylesheet" href="{{path('assets', 'css', 'style.css')}}" />
+            <link rel="stylesheet" href="{{path('assets', 'css', 'content.css')}}" />
             <script src="{{path('assets', 'js', 'main.js')}}"></script>
             <title>{% block title %}{% endblock %}</title>
         {% endblock %}
@@ -14,7 +15,8 @@
     <body>
         <div class="content-wrapper">
             <header>{% include 'layouts/partials/nav.twig' %}</header>
-            <div class="content">{% block content %}{% endblock %}</div>            
+            {% block cover %} {% endblock %}            
+            <section class="content">{% block content %}{% endblock %}</section>
             {% block script %}{% endblock %}
         </div>
         {% include 'layouts/partials/msg.twig' %}

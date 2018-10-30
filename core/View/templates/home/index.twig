@@ -1,12 +1,15 @@
 {% extends "layouts/one.twig" %}
 
-{% block title %}Index{% endblock %}
-{% block head %}
-    {{ parent() }}
-    <style type="text/css">
-        .important { color: #336699; }
-    </style>
+{% block cover %}
+<section class="cover">
+{% include 'layouts/partials/cover.twig' %}
+    <div class="cover-name">
+        <span class="cname">Hoang Hieu</span>
+        <span class="cposition">(PHP developer)</span>
+    </div>
+</section>
 {% endblock %}
+{% block title %}Index{% endblock %}
 {% block content %}
     <h1>{{msg}}</h1>
     <p class="important">

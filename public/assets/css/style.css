@@ -45,24 +45,24 @@ body {
     text-decoration: none;
     display: block;
 }
-.nav>ul>li>a:hover {
-    background-color: rgba(22, 21, 21, 0.267);
-}
-.nav>ul>li>a.active {
-    background-color: rgba(14, 13, 13, 0.267);
+.nav>ul>li>a:not(.top-icon) {
+    padding: 5px;
 }
 .header {
+    top: 0;
     height: 43px;
     width: 100%;
     background-color: #29487d;
     margin-bottom: 20px;
+    z-index: 9999;
+    position: fixed;
 }
 .logo {
     float: left;
     width: 7rem
 }
 .menu {
-    width: 80%;
+    max-width: 960px;
     margin: auto;
 }
 .nav {
@@ -95,9 +95,7 @@ footer {
 footer a {
     color: #50cc83;
 }
-.form {
-    width: 400px;
-}
+
 fieldset {
     padding: 25px;
 }
@@ -134,8 +132,25 @@ fieldset {
     -webkit-box-shadow: 0 8px 6px -6px black;
     box-shadow: 0 8px 6px -6px black;
 }
-
-
+.cover {
+    height: 300px;
+    padding: 40px;
+    margin: 20px auto;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    max-width: 960px;
+    position: relative;
+    background: #a2b5e8;
+}
+.avatar {
+    height: 140px;
+    width: 140px;
+    position: absolute;
+    bottom: -10px;
+    background-image: url(http://localhost/mycv/public/assets/image/avatar.jpg);
+    border: 3px solid white;
+    border-radius: 50%;
+}
 
 @media only screen and (max-width: 768px) {
     .menu {
