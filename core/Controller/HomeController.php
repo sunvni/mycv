@@ -24,7 +24,7 @@ class HomeController extends Controller
     }
     public function login()
     {
-        $input = request()->get();
+        $input = request()->getAll();
         dd($input);
     }
 }

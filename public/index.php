@@ -6,7 +6,7 @@
 
  require "../vendor/autoload.php";
 
- use Core\Http\HttpHandler;
+ use Core\Runtime\WebService;
  
- $httpHandler = new HttpHandler;
- $httpHandler->start();
+ $webService = new WebService;
+ $webService->process();

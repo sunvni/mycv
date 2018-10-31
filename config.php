@@ -4,6 +4,6 @@ $app = array(
     'dbname' => 'mycv',
     'username' => 'root',
     'password' => '',
-    'site_url' => 'http://localhost/mycv/public'
+    'site_url' => ''
 );
 return $app;

@@ -1,0 +1,22 @@
+{% extends "layouts/one.twig" %}
+
+{% block content %}
+<div class="login-form">
+    <form action="{{path("admin")}}" method="POST">
+        {{ addkey()|raw }}
+        <div class="form-item">
+            <label for="username">
+                <input type="text" name="username">
+            </label>
+        </div>
+        <div class="form-item">
+            <label for="password">
+                <input type="password" name="password">
+            </label>
+        </div>
+        <div class="form-item">
+            <input type="submit" value="Login"> 
+        </div>
+    </form>
+</div>
+{% endblock %}

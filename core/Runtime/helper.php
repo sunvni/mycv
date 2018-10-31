@@ -38,18 +38,18 @@ function config()
 
 function request()
 {
-    $request = new Core\Lib\Request;
+    $request = Core\Runtime\Request::getInstance();
     return $request;
 }
 
 function router($name)
 {
-    $router = new Core\Lib\Router;
+    $router = new Core\Runtime\Router;
     return $router;
 }
 function session()
 {
-    $ses = new Core\Lib\Session;
+    $ses = Core\Runtime\Session::getInstance();
     return $ses;
 }
 

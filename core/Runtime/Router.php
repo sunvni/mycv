@@ -1,9 +1,9 @@
 <?php
-namespace Core\Lib;
+namespace Core\Runtime;
 
 use Core\Lib\View;
-use Core\Lib\Request;
 use Core\Lib\Controller;
+use Core\Runtime\Request;
 
 class Router
 {
@@ -23,21 +23,19 @@ class Router
         //return $this->url;
     }
 
-    private function setController()
+    private function setController(Request $request)
     {
-        $request = request();
-        $method = $request->get('method');
-        $path = $request->get('path');
+        $method = $request->getMethod();
+        $path = $request->getPath();
         $isHome = $request->isHome();
         if (!$isHome) {
             foreach ($this->web[$method] as $key => $res) {
-                $regex = preg_replace('/{(.+?)}/', '(?\'${1}\'.+?)', $key);
-                $regex = '/'.str_replace('/', '\\/', $regex).'$/';
-                $hasRouter = preg_match($regex, $path, $tmp);
+                $args = array();
+                $hasRouter = $this->checkRouter($key, $path, $args);
                 if ($hasRouter) {
-                    array_shift($tmp);
-                    $tmp = filterKey($tmp);
-                    $this->args = $tmp;
+                    array_shift($args);
+                    $args = filterKey($args);
+                    $this->args = $args;
                     $this->controller = $res['con'];
                     $this->function = $res['func'];
                     return true;
@@ -51,37 +49,27 @@ class Router
         return false;
     }
 
-    public function run()
+    private function checkRouter($router, $path, &$tmp)
     {
-        $valid = $this->checkCSKey();
-        if (!$valid) {
-            redirect('home');
-            die;
-        }
-        $hasRouter = $this->setController();
+        $regex = preg_replace('/{(.+?)}/', '(?\'${1}\'.+?)', $router);
+        $regex = '/'.str_replace('/', '\\/', $regex).'$/';
+        $hasRouter = preg_match($regex, $path, $tmp);
+        return $hasRouter;
+    }
+
+    public function run(Request $request)
+    {
+        
+        $hasRouter = $this->setController($request);
         if ($hasRouter) {
             $controller = $this->initController();
             $function = $this->function;
             $args = $this->args;
+            array_push($args, $request);
             $controller->$function(...$args);
         } else {
             $this->error();
         }
-    }
-
-    private function checkCSKey()
-    {
-        $request = request();
-        if ($request->get('method') == "POST") {
-            $cskey = session()->get('cskey');
-            $reqcskey = $request->get('cskey');
-            session()->delete("cskey");
-            if ($cskey != $reqcskey) {
-                return false;
-            }
-        }
-        $request->delete("cskey");
-        return true;
     }
 
     private function error()
