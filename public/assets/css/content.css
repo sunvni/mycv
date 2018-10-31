@@ -1,5 +1,5 @@
 .world {
-    background-image: url(http://localhost/mycv/public/assets/image/world.png);    
+    background-image: url(/assets/image/world.png);    
 }
 .msg-r {
     background-image: url(/assets/image/black.png);
@@ -18,7 +18,7 @@
     outline: none;
     position: relative;
 }
-.world.active {
+.responsive .world, .active .world {
     background-image: url(/assets/image/white-world.png);
 }
 .notify {

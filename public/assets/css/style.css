@@ -31,6 +31,7 @@ body {
     font-size: 18px;
     font-weight: 400;
     line-height: 1.618;
+    min-height: 1000px;
 }
 
 .nav>ul {
@@ -47,6 +48,12 @@ body {
 }
 .nav>ul>li>a:not(.top-icon) {
     padding: 5px;
+}
+.nav>ul>li.active:not(.top-icon){
+    background-color: #1d3154;
+}
+.nav>ul>li:hover{
+    background-color: #22385f;
 }
 .header {
     top: 0;
