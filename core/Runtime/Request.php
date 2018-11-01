@@ -6,7 +6,7 @@ class Request
     const POST_METHOD = "POST";
     const GET_METHOD = "GET";
     private $data;
-    private static $method;
+    private $method;
     private static $instance;
 
     private function __construct()
