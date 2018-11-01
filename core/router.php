@@ -3,9 +3,9 @@ $web = array(
     'GET' => array(
         '/' => array('con' => 'HomeController', 'func' => 'index'),
         'timelife' => array('con' => 'TimeLifeController', 'func' => 'index'),
-        'about' => array('con' => 'AboutController', 'func' => 'index'),
-        'project' => array('con' => 'ProjectController', 'func' => 'index'),
+        'contact' => array('con' => 'HomeController', 'func' => 'contact'),
         'road' => array('con' => 'HomeController', 'func' => 'roadMap'),
+        'project' => array('con' => 'ProjectController', 'func' => 'index'),
         'post/{id}' => array('con' => 'BlogController', 'func' => 'show', 'name'=> 'blog'),
 
         //Admin

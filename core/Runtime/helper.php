@@ -59,8 +59,8 @@ function view()
     
     $view_name = array_shift($data);
     $view_name = str_replace('.', '/', $view_name);
-    $view = new Core\Lib\View();
-    $view->display($view_name, $data);
+    $render = new Core\View\Render;
+    $render->display($view_name, $data);
 }
 
 function path()

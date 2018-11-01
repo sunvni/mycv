@@ -1,13 +1,7 @@
-{% extends "layouts/one.twig" %}
+{% extends "layouts/one.html.twig" %}
 
 {% block cover %}
-<section class="cover">
-{% include 'layouts/partials/cover.twig' %}
-    <div class="cover-name">
-        <span class="cname">Hoang Hieu</span>
-        <span class="cposition">(PHP developer)</span>
-    </div>
-</section>
+{% include 'layouts/partials/cover.html.twig' %}
 {% endblock %}
 {% block title %}Index{% endblock %}
 {% block content %}

@@ -1,17 +1,19 @@
 <?php
-namespace Core\Lib;
+namespace Core\View;
 
 use Twig_Loader_Filesystem as Loader;
 use Twig_Environment as Twig;
+use Core\Lib\MRObject;
 
-class View
+class Render extends MRObject
 {
     private $data;
+    private $engine;
     private $view_path;
 
     public function __construct()
     {
-        $template_path = dirname(__DIR__)."/View/templates";
+        $template_path = dirname(dirname(__DIR__))."/templates";
         $cache_path = dirname(dirname(__DIR__))."/cache/views";
         $loader = new Loader($template_path);
         $this->engine = new Twig($loader, array(
@@ -31,12 +33,11 @@ class View
         foreach ($data as $key => $value) {
             $this->data[$key] = $value;
         }
-
         try {
-            $this->engine->display($view.".twig", ...$data);
+            $this->engine->display("views/".$view.".html.twig", ...$data);
         } catch (\Twig_Error $e) {
             $msg = $e->getMessage();
-            $this->engine->display("errors/msg.twig", compact("msg"));
+            $this->engine->display("views/errors/msg.html.twig", compact("msg"));
         }
     }
 }

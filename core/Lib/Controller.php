@@ -1,7 +1,7 @@
 <?php
 namespace Core\Lib;
 
-class Controller
+class Controller extends MRObject
 {
     public function index()
     {

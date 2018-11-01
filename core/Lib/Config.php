@@ -1,7 +1,7 @@
 <?php
 namespace Core\Lib;
 
-class Config
+class Config extends MRObject
 {
     private $data;
 

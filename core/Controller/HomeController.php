@@ -27,4 +27,10 @@ class HomeController extends Controller
         $input = request()->getAll();
         dd($input);
     }
+
+    public function contact()
+    {
+        $msg = "Skype: sunvni";
+        return view("home.road", compact('msg'));
+    }
 }

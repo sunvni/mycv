@@ -1,7 +1,7 @@
 <?php
 namespace Core\Lib;
 
-class Model
+class Model extends MRObject
 {
     public static function getInstance($id)
     {

@@ -3,7 +3,7 @@ namespace Core\Lib;
 
 use Core\Lib\Config;
 
-class Database
+class Database extends MRObject
 {
     public function __construct()
     {
