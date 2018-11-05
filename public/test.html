@@ -192,6 +192,37 @@
             }
 
             draw();
+
+            function matchingJob(jobDetail) {
+                let happyPoint = 100; //I am happy
+                let confidencePoint = 50; // with a little unconfident
+                let mySalary = getCurrentSalary();
+                const experients = [
+                    'PHP',
+                    'JavaScript'
+                    /* mySQL, HTML, CSS ... and some MUST languages for a web developer */
+                ]
+                if (jobDetail.isDevJob == true) {
+                    happyPoint += 20; //
+                }
+                experients.forEach((language)=> {
+                    if (~jobDetail.languages.indexOf(language)) {
+                        confidencePoint += 25; //I will be confident when work with experience languages
+                    }
+                })
+                if (jobDetail.canLearn) {
+                    happyPoint += 100; //I am so happy if I can keep filling my road map to be a better developer
+                }
+                if (jobDetail.salary > mySalary) {
+                    happyPoint += 100; // Yes I am the guy that happy when have more money 
+                }
+                if (confidencePoint > 75 && happyPoint > 120) 
+                {
+                    console.log("I am ready to challenge");
+                } else {
+                    return;
+                }
+            }
     </script>
 </body>
 </html>

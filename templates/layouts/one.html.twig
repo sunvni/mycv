@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="Description" content="My name is Hieu, I am a full stack web developer. I make this website all by myself and without using framework. I am using pure javascript and twig for templating">
         <title>myResume - Hoang Hieu</title>
         {% block head %}
             <link rel="stylesheet" href="{{path('assets', 'css', 'style.css')}}" />
@@ -22,7 +23,7 @@
         {% include 'layouts/partials/msg.html.twig' %}
         <footer>
                 {% block footer %}
-                    &copy; Copyright 2018 by <a target="_blank" href="https://sunvni.com/">sunvni.com</a>.
+                    &copy; Copyright 2018 by <a target="_blank" rel="noopener" href="https://sunvni.com/">sunvni.com</a>.
                 {% endblock %}
         </footer>
     </body>

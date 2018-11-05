@@ -1,13 +1,11 @@
 <?php
 namespace Core\Runtime;
 
-use Core\Runtime\Session;
-
 class WebService
 {
     public function process()
     {
-        $request = request();
+        $request = Request::getInstance();
         if (!$request->validateRequest()) {
             $this->close();
         }
