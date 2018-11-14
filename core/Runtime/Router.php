@@ -59,7 +59,6 @@ class Router
 
     public function run(Request $request)
     {
-        
         $hasRouter = $this->setController($request);
         if ($hasRouter) {
             $controller = $this->initController();

@@ -60,6 +60,12 @@ class Request
         return true;
     }
 
+    public function getRawPost()
+    {
+        $input = json_decode(file_get_contents('php://input'), true);
+        return $input;
+    }
+
     public function clean()
     {
         if ($this->method == self::GET_METHOD) {

@@ -6,10 +6,6 @@ class WebService
     public function process()
     {
         $request = Request::getInstance();
-        if (!$request->validateRequest()) {
-            $this->close();
-        }
-        $request->clean();
         Session::getInstance();
         $router = new Router;
         $router->run($request);

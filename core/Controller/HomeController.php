@@ -2,6 +2,7 @@
 namespace Core\Controller;
 
 use Core\Lib\Controller;
+use Core\Runtime\Request;
 
 class HomeController extends Controller
 {
@@ -32,5 +33,11 @@ class HomeController extends Controller
     {
         $msg = "Skype: sunvni";
         return view("home.road", compact('msg'));
+    }
+
+    public function webhook(Request $req)
+    {
+        dd($req->getRawPost());
+        die;
     }
 }
