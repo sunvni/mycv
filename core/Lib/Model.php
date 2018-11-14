@@ -1,8 +1,9 @@
 <?php
 namespace Core\Lib;
 
-class Model extends MRObject
+class Model extends Database
 {
+    private $table = "";
     public static function getInstance($id)
     {
         if (!is_numeric($id)) {
@@ -23,5 +24,10 @@ class Model extends MRObject
     public function delete($id)
     {
         echo "deleted!";
+    }
+
+    private function getTableName()
+    {
+        return $this->table;
     }
 }

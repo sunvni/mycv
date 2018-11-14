@@ -15,6 +15,12 @@
         ]
     },
     "require": {
-        "twig/twig": "2.0"
+        "twig/twig": "2.0",
+        "monolog/monolog": "^1.24"
+    },
+    "require-dev": {
+        "filp/whoops": "^2.3",
+        "symfony/var-dumper": "^4.1",
+        "phpunit/phpunit": "^7.4"
     }
 }

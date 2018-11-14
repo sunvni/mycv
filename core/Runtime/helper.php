@@ -1,12 +1,4 @@
 <?php
-function dd(...$args)
-{
-    ob_end_clean();
-    header('Content-Type: application/json');
-    print(json_encode($args));
-    die;
-}
-
 function filterAssoc(array $array)
 {
     $result = array();
